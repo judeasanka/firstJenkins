@@ -1,16 +1,19 @@
-
 pipeline {
     agent any
+    
     stages {
+        stage('Checkout') {
+            steps {
+                git credentialsId: 'github-creds', url:'https://github.com/judeasanka/firstJenkins.git', branch: 'main'
+            }
+        }
+        
         stage('Build') {
             steps {
-                sh 'echo "Hello World to Jenkins"'
-                sh '''
-                    echo "Multiline shell steps works too"
-                    ls -lah
-                '''
+                echo "Code Pulled"
+                sh 'chmod 777 ./build.sh'
+                sh './build.sh'
             }
         }
     }
 }
-
