@@ -2,11 +2,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Checkout') {
-            steps {
-                git credentialsId: 'github-creds', url:'https://github.com/judeasanka/firstJenkins.git', branch: 'main'
-            }
-        }
+       // stage('Checkout') {
+         //   steps {
+           //     git credentialsId: 'github-creds', url:'https://github.com/judeasanka/firstJenkins.git', branch: 'main'
+            //}
+        //}
         
         stage('Build') {
             steps {
